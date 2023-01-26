@@ -53,8 +53,8 @@ const ImagesFootwear = () => {
 
   // const [text, setText] = useState("Select NGO...");
   
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [image, setimage] = useState(null);
+  // const [selectedImage, setSelectedImage] = useState(null);
+  // const [image, setimage] = useState(null);
   // const [imag, setImag] = useState({ title: "", description: "", text: "" });
 
   const [title, settitle] = useState("")
@@ -71,7 +71,7 @@ const ImagesFootwear = () => {
           'Content-Type': 'application/json',
           'auth-token': localStorage.getItem('token')
         },
-        body: JSON.stringify({ title, description, image })
+        body: JSON.stringify({ title, description, image: "https://www.gannett-cdn.com/-mm-/3b8b0abcb585d9841e5193c3d072eed1e5ce62bc/c=0-30-580-356/local/-/media/2017/10/05/USATODAY/usatsports/glass-jar-full-of-cois-with-donate-written-on-it-charity-donation-philanthropy_large.jpg?width=1200&disable=upscale&format=pjpg&auto=webp"})
       });
   
       const json = await response.json()
@@ -95,11 +95,11 @@ const ImagesFootwear = () => {
   //   setImag({ ...imag, [e.target.name]: e.target.value });
   // };
 
-  useEffect(() => {
-    if (selectedImage) {
-      setimage(URL.createObjectURL(selectedImage));
-    }
-  }, [selectedImage]);
+  // useEffect(() => {
+  //   if (selectedImage) {
+  //     setimage(URL.createObjectURL(selectedImage));
+  //   }
+  // }, [selectedImage]);
 
   return (
     <>
@@ -107,7 +107,7 @@ const ImagesFootwear = () => {
     <Quote />
       <div className={`${styles.container} container my-3 rounded`}>
         <div className="row">
-          <div className={`${styles.col1} col-md-6`}>
+          {/* <div className={`${styles.col1} col-md-6`}>
             <div className={styles.first}>
               {!image && !selectedImage && (
                 <div className={`${styles.box} my-5`}>
@@ -141,8 +141,8 @@ const ImagesFootwear = () => {
                 UPLOAD FROM GALLERY
               </label>
             </div>
-          </div>
-          <div className={`${styles.col2} col-md-6`}>
+          </div> */}
+          <div className={`${styles.col2} col-12`}>
             <div className={styles.second}>
               <div className="my-3">
                 <div className={`${styles.heading} my-3`}>Your info</div>
