@@ -32,8 +32,8 @@ const Images = (props) => {
     return error;
   }
 
-  // const [selectedImage, setSelectedImage] = useState(null);
-  // const [image, setimage] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [image, setimage] = useState(null);
   const [title, settitle] = useState("")
   const [description, setdescription] = useState("")
   const navigate = useNavigate()
@@ -47,7 +47,7 @@ const Images = (props) => {
           'Content-Type': 'application/json',
           'auth-token': localStorage.getItem('token')
         },
-        body: JSON.stringify({ title, description, image:"https://www.gannett-cdn.com/-mm-/3b8b0abcb585d9841e5193c3d072eed1e5ce62bc/c=0-30-580-356/local/-/media/2017/10/05/USATODAY/usatsports/glass-jar-full-of-cois-with-donate-written-on-it-charity-donation-philanthropy_large.jpg?width=1200&disable=upscale&format=pjpg&auto=webp" })
+        body: JSON.stringify({ title, description, image })
       });
   
       const json = await response.json()
@@ -62,35 +62,35 @@ const Images = (props) => {
       }  
     }
 
-  // const handleImage = async () => {
-  //     // e.preventDefault();
-  //     // const {name, email, password} = credentials;
-  //     var formData = new FormData();
+  const handleImage = async () => {
+      // e.preventDefault();
+      // const {name, email, password} = credentials;
+      var formData = new FormData();
   
-  // // image.map((file, index) => {
-  // //   formData.append(`file${index}`, file);
-  // // });
-  // formData.append('image',image)
-  //     const response = await fetch("http://localhost:5000/api/details/images", {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //         'auth-token': localStorage.getItem('token')
-  //       },
-  //       body:JSON.parse(formData)
-  //     });
-  // console.log(formData)
-  //     const json = await response.json()
-  //     console.log(json);
-  //     if(json.success){
-  //       // Save the auth token and redirect
-  //       props.showAlert("Image Added Successfully", "success")
-  //       // navigate('/itemsbox');
-  //     }
-  //     else{
-  //       props.showAlert("Invalid Credential", "danger")
-  //     }  
-  //   }
+  // image.map((file, index) => {
+  //   formData.append(`file${index}`, file);
+  // });
+  formData.append('image',image)
+      const response = await fetch("http://localhost:5000/api/details/images", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'auth-token': localStorage.getItem('token')
+        },
+        body:JSON.parse(formData)
+      });
+  console.log(formData)
+      const json = await response.json()
+      console.log(json);
+      if(json.success){
+        // Save the auth token and redirect
+        props.showAlert("Image Added Successfully", "success")
+        // navigate('/itemsbox');
+      }
+      else{
+        props.showAlert("Invalid Credential", "danger")
+      }  
+    }
 
 
   // const handleOnChange = (event) => {
@@ -101,17 +101,17 @@ const Images = (props) => {
   //   setImag({ ...imag, [e.target.name]: e.target.value });
   // };
 
-  // useEffect(() => {
-  //   if (selectedImage) {
-  //     setimage(URL.createObjectURL(selectedImage));
-  //   }
-  // }, [selectedImage]);
+  useEffect(() => {
+    if (selectedImage) {
+      setimage(URL.createObjectURL(selectedImage));
+    }
+  }, [selectedImage]);
 
   return (
     <>
       <div className={`${styles.container} container my-3 rounded`}>
         <div className="row">
-          {/* <div className={`${styles.col1} col-md-6`}>
+          <div className={`${styles.col1} col-md-6`}>
             <div className={styles.first}>
               {!image && !selectedImage && (
                 <div className={`${styles.box} my-5`}>
@@ -147,8 +147,8 @@ const Images = (props) => {
               
               <button onClick={handleImage} className="btn btn-dark button">Submit & Continue</button>
             </div>
-          </div> */}
-          <div className={`${styles.col2} col-12`}>
+          </div>
+          <div className={`${styles.col2} col-md-6`}>
             <div className={styles.second}>
               <div className="my-3">
                 <div className={`${styles.heading} my-3`}>Your info</div>
