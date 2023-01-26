@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 const Donation = () => {
   const navigate = useNavigate()
   const handleSubmit = () =>{
-    navigate('/images')
+    navigate('/imagesClothes')
   }
   const handleSubmit_1 = () =>{
     navigate('/imagesFootwear')
@@ -17,9 +17,9 @@ const Donation = () => {
           YOU CAN DONATE OLD ITEMS IN THESE  CATEGORIES
         </div>
       </div>
-      <div onClick={handleSubmit_1} className={styles.DonateBoxContainer} container-fluid>
+      <div className={styles.DonateBoxContainer} container-fluid>
         <div className={`${styles.row} row`}>
-          <div  className={`${styles.col} ${styles.boxes} col-6 col-md-3`}>
+          <div onClick={handleSubmit_1} className={`${styles.col} ${styles.boxes} col-6 col-md-3`}>
             <div className={`${styles.cards} card border-0`}>
               {/* <img src="https://www.gannett-cdn.com/-mm-/3b8b0abcb585d9841e5193c3d072eed1e5ce62bc/c=0-30-580-356/local/-/media/2017/10/05/USATODAY/usatsports/glass-jar-full-of-cois-with-donate-written-on-it-charity-donation-philanthropy_large.jpg?width=1200&disable=upscale&format=pjpg&auto=webp" className="card-img-top" alt="..." /> */}
               <div className="card-body p-0">

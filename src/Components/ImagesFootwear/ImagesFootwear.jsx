@@ -13,7 +13,7 @@ import Quote from '../Home/Quote';
 
 import { Formik, Form, Field } from "formik";
 
-const ImagesFootwear = () => {
+const ImagesFootwear = (props) => {
   const initialValues = {
     title: "",
     description: "",
@@ -86,6 +86,37 @@ const ImagesFootwear = () => {
       // }  
     }
 
+    const handleImage = async () => {
+      // e.preventDefault();
+      // const {name, email, password} = credentials;
+      var formData = new FormData();
+  
+  // image.map((file, index) => {
+  //   formData.append(`file${index}`, file);
+  // });
+  formData.append('image',image)
+      const response = await fetch("http://localhost:5000/api/details/images", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'auth-token': localStorage.getItem('token')
+        },
+        body:JSON.parse(formData)
+      });
+  console.log(formData)
+      const json = await response.json()
+      console.log(json);
+      if(json.success){
+        // Save the auth token and redirect
+        props.showAlert("Image Added Successfully", "success")
+        // navigate('/itemsbox');
+      }
+      else{
+        props.showAlert("Invalid Credential", "danger")
+      }  
+    }
+
+
 
   // const handleOnChange = (event) => {
   //   setText(event.target.value);
@@ -140,6 +171,7 @@ const ImagesFootwear = () => {
               >
                 UPLOAD FROM GALLERY
               </label>
+              <button onClick={handleImage} className="btn btn-dark button">Submit & Continue</button>
             </div>
           </div>
           <div className={`${styles.col2} col-md-6`}>

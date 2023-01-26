@@ -37,7 +37,7 @@ function App() {
         <Routes>
           {/* <Route exact path='/' element={<Dashboard />} /> */}
           <Route exact path='/' element={<Home />} />
-          <Route exact path='/images' element={<Images showAlert={showAlert}/>} />
+          <Route exact path='/imagesClothes' element={<Images showAlert={showAlert}/>} />
           <Route exact path='/imagesfootwear' element={<ImagesFootwear showAlert={showAlert}/>} />
           <Route exact path='/itemsbox' element={<Items showAlert={showAlert}/>} />
           <Route exact path='/Login' element={<Login showAlert={showAlert}/>} />

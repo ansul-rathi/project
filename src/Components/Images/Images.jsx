@@ -144,7 +144,6 @@ const Images = (props) => {
               >
                 UPLOAD FROM GALLERYs
               </label>
-              
               <button onClick={handleImage} className="btn btn-dark button">Submit & Continue</button>
             </div>
           </div>
