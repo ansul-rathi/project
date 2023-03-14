@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import styles from "./ImagesFootwear.module.css";
 import Navbar from "../Navbar/Navbar";
 import Quote from '../Home/Quote';
+import axios from "axios";
 // import * as React from 'react';
 // import Box from '@mui/material/Box';
 // import TextField from '@mui/material/TextField';
@@ -54,7 +55,8 @@ const ImagesFootwear = (props) => {
   // const [text, setText] = useState("Select NGO...");
   
   const [selectedImage, setSelectedImage] = useState(null);
-  const [image, setimage] = useState(null);
+  const [image, setimage] = useState('');
+  const [file, setFile] = useState('');
   // const [imag, setImag] = useState({ title: "", description: "", text: "" });
 
   const [title, settitle] = useState("")
@@ -71,7 +73,7 @@ const ImagesFootwear = (props) => {
           'Content-Type': 'application/json',
           'auth-token': localStorage.getItem('token')
         },
-        body: JSON.stringify({ title, description, image })
+        body: JSON.stringify({ title, description })
       });
   
       const json = await response.json()
@@ -86,24 +88,38 @@ const ImagesFootwear = (props) => {
       // }  
     }
 
+  const onChangesa = async (e) => {
+    setSelectedImage(e.target.files[0])  
+    setFile(e.target.files[0]);
+    console.log(e.target.files);  
+    console.log(e.target.files[0]);  
+    }
+
     const handleImage = async () => {
+      console.log("Images");
+      console.log(file);
+      const formData = new FormData();
+      formData.append('file',file)
+      // const url="http://localhost:5000/api/details/images";
+      // axios.post(url, formData).then((res)=>{
+      //   console.log(formData);
+      // })
       // e.preventDefault();
       // const {name, email, password} = credentials;
-      var formData = new FormData();
   
-  // image.map((file, index) => {
-  //   formData.append(`file${index}`, file);
-  // });
-  formData.append('image',image)
+    // image.map((file, index) => {
+    //   formData.append(`file${index}`, file);
+    // });
       const response = await fetch("http://localhost:5000/api/details/images", {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          // 'Content-Type': 'application/json',
           'auth-token': localStorage.getItem('token')
         },
-        body:JSON.parse(formData)
+        body:formData
       });
-  console.log(formData)
+      alert("Data saved");
+      console.log("formData")
       const json = await response.json()
       console.log(json);
       if(json.success){
@@ -126,6 +142,10 @@ const ImagesFootwear = (props) => {
   //   setImag({ ...imag, [e.target.name]: e.target.value });
   // };
 
+  // const add =()=>{
+  //   console.log(file);
+  // }
+
   useEffect(() => {
     if (selectedImage) {
       setimage(URL.createObjectURL(selectedImage));
@@ -136,6 +156,8 @@ const ImagesFootwear = (props) => {
     <>
     <Navbar />
     <Quote />
+    {/* <input type="file" onChange={(e)=>setFile(e.target.files[0])} />
+    <button onClick={add}>Add</button> */}
       <div className={`${styles.container} container my-3 rounded`}>
         <div className="row">
           <div className={`${styles.col1} col-md-6`}>
@@ -162,7 +184,7 @@ const ImagesFootwear = (props) => {
                 type="file"
                 id="select-image"
                 style={{ display: "none" }}
-                onChange={(e) => setSelectedImage(e.target.files[0])}
+                onChange={onChangesa}
                 className="btn-check"
               />
               <label

@@ -74,6 +74,7 @@ router.post('/adddetail/shoes', fetchuser, [
 
 // ROUTE 4:  Add a new Detail using: POST "/api/details". login required
 router.post("/images", fetchuser, upload.single('image') , async (req,res) => {
+    console.log(file);
     const uploadFile = req.file;
     if(!uploadFile) {
         res.json({success: false, error: "file-not-uploaded"});
@@ -82,6 +83,8 @@ router.post("/images", fetchuser, upload.single('image') , async (req,res) => {
     const images = new Image({
         uploadFile, user: req.user.id
     })
+    console.log("Images uploaded");
+    console.log(upLoadImage);
     const savedDetail = await images.save();
     res.json({ success: true, savedDetail });
     // res.json({success: true, data: uploadFile, user: req.user.id});
