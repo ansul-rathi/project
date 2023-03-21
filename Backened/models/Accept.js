@@ -6,10 +6,10 @@ const AcceptSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user'
     },
-    ngo:{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'ngo'
-    },
+    // ngo:{
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: 'ngo'
+    // },
     status:{
         type: String,
         required: true
