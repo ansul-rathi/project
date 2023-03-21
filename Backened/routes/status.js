@@ -3,6 +3,7 @@ const router = express.Router();
 const fetchuser = require('../middleware/fetchuser');
 const Accept = require('../models/Accept');
 const { body, validationResult } = require('express-validator');
+const fetchngo = require('../middleware/fetchngo')
 
 // ROUTE 1:  Get All the Details using: GET "/api/status/getuser". login required
 // router.get('/statusdetails', fetchuser, async (req, res) => {
@@ -16,7 +17,7 @@ const { body, validationResult } = require('express-validator');
 // })
 
 // ROUTE 2:  Add a new Detail using: POST "/api/status/addstatus". login required
-router.post('/addstatus/', [
+router.post('/addstatus/:id', fetchuser, fetchngo, [
     body('status', 'Status must be there').exists(),
 ], async (req, res) => {
     try {
@@ -27,7 +28,7 @@ router.post('/addstatus/', [
             return res.status(400).json({ errors: errors.array() });
         }
         const acc = new Accept({
-            status, ngo: req.ngo.id, user: req.user.id
+            status, user:req.user.id, ngo: req.ngo.id
             // status
         })
         const savedDetail = await acc.save();
