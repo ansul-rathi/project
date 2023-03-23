@@ -8,7 +8,7 @@
 } */
 
 .entries{
-    height:250px;
+    height:50vh;
     overflow-y: 250px;
     background-color: rgb(164, 164, 164);
     border-radius: 5px;

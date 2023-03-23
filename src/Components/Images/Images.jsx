@@ -33,7 +33,9 @@ const Images = (props) => {
   }
 
   const [selectedImage, setSelectedImage] = useState(null);
-  const [image, setimage] = useState(null);
+  const [image, setimage] = useState('');
+  const [file, setFile] = useState('');
+
   const [title, settitle] = useState("")
   const [description, setdescription] = useState("")
   const navigate = useNavigate()
@@ -63,23 +65,20 @@ const Images = (props) => {
     }
 
   const handleImage = async () => {
-      // e.preventDefault();
-      // const {name, email, password} = credentials;
-      var formData = new FormData();
-  
-  // image.map((file, index) => {
-  //   formData.append(`file${index}`, file);
-  // });
-  formData.append('image',image)
+      console.log("Images");
+      console.log(file);
+      const formData = new FormData();
+      formData.append('file',file);
       const response = await fetch("http://localhost:5000/api/details/images", {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          // 'Content-Type': 'application/json',
           'auth-token': localStorage.getItem('token')
         },
-        body:JSON.parse(formData)
+        body:formData
       });
-  console.log(formData)
+      alert("Data saved");
+      console.log("formData")
       const json = await response.json()
       console.log(json);
       if(json.success){
