@@ -29,10 +29,6 @@ const DetailsSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'ngo'
     },
-    ngo_name:{
-        type: String
-        // ref: 'ngo'
-    },
     date:{
         type: Date,
         default: Date.now

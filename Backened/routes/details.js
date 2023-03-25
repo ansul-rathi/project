@@ -33,7 +33,7 @@ router.post('/adddetail/clothes', fetchuser, [
             return res.status(400).json({ success, errors: errors.array() });
         }
         const detail = new Detail({
-            title, description, image: data[0].uploadFile.filename, category:'clothes', status:'default', ngo_name:'default', user: req.user.id
+            title, description, image: data[0].uploadFile.filename, category:'clothes', status:'default', user: req.user.id
         })
         const savedDetail = await detail.save();
         success = true;
@@ -60,7 +60,7 @@ router.post('/adddetail/shoes', fetchuser, [
             return res.status(400).json({ success, errors: errors.array() });
         }
         const detail = new Detail({
-            title, description, image: data[0].uploadFile.filename, category:'shoes', status:'default', ngo_name:'default', user: req.user.id
+            title, description, image: data[0].uploadFile.filename, category:'shoes', status:'default', user: req.user.id
         })
         const savedDetail = await detail.save();
         success = true;
@@ -72,7 +72,34 @@ router.post('/adddetail/shoes', fetchuser, [
     }
 })
 
-// ROUTE 4:  Add a new Detail using: POST "/api/details". login required
+// ROUTE 4:  Add a new Detail using: POST "/api/details/adddetail". login required
+router.post('/adddetail/books', fetchuser, [
+    body('title', 'Title must be atleast 5 characters').isLength({ min: 5 }),
+    body('description', 'Description must be atleast 10 characters').isLength({ min: 10 }),
+], async (req, res) => {
+    let success = false;
+    try {
+        const { title, description} = req.body;
+        const data = await Image.find({ user: req.user.id });
+        // if there are errors, return Bad request and the errors
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ success, errors: errors.array() });
+        }
+        const detail = new Detail({
+            title, description, image: data[0].uploadFile.filename, category:'books', status:'default', user: req.user.id
+        })
+        const savedDetail = await detail.save();
+        success = true;
+        res.json({ success, savedDetail });
+
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send("Internal Server Error");
+    }
+})
+
+// ROUTE 5:  Add a new Detail using: POST "/api/details". login required
 router.post("/images", fetchuser, upload.single('file') , async (req,res) => {
     // console.log(file);
     const uploadFile = req.file;
@@ -90,7 +117,7 @@ router.post("/images", fetchuser, upload.single('file') , async (req,res) => {
     // res.json({success: true, data: uploadFile, user: req.user.id});
 })
 
-// ROUTE 5:  Get All the Details using: GET "/api/details". login required
+// ROUTE 6:  Get All the Details using: GET "/api/details". login required
 router.get('/getimage', fetchuser, async (req, res) => {
     try {
         const data = await Image.find({ user: req.user.id });
@@ -101,7 +128,7 @@ router.get('/getimage', fetchuser, async (req, res) => {
     } 
 })
 
-// ROUTE 6:  Get All the Details using: GET "/api/details/getuser". login required
+// ROUTE 7:  Get All the Details using: GET "/api/details/getuser". login required
 router.get('/fetchalldetail', async (req, res) => {
     try {
         const detail = await Detail.find();

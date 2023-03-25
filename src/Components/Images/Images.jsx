@@ -49,7 +49,8 @@ const Images = (props) => {
           'Content-Type': 'application/json',
           'auth-token': localStorage.getItem('token')
         },
-        body: JSON.stringify({ title, description, image })
+        body: JSON.stringify({ title, description })
+        // body: JSON.stringify({ title, description, image })
       });
   
       const json = await response.json()
