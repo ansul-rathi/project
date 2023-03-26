@@ -50,12 +50,23 @@ const Items = () => {
                 return (
                   <>
                     {item.category == "shoes" && (
-                      <div className="row mx-1 mt-1 p-1 border border-warning rounded" style={{ backgroundColor: 'black' }}>
-                        <div className="col-12 p-1" style={{ backgroundColor: 'black' }}>
+                      <div className="row mx-1 mt-1 p-1 border border-warning rounded" style={{ backgroundColor: `${item.status}`=="default"?'black':`${item.status}`=="Accepted"?"Green":"Red"}}>
+                        <div className="col-12 p-1" style={{ backgroundColor: `${item.status}`=="default"?'black':`${item.status}`=="Accepted"?"Green":"Red" }}>
                           <div className="row">
                             <div className="col-3">{item.image}</div>
                             <div className="col-6 d-flex justify-content-center align-items-center">{item.title}</div>
                             <div className="col-3 d-flex align-items-center">{item.description}</div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                    {item.category == "shoes" && item.status != "default" && (
+                      <div className="row mx-1 mt-1 p-1 border border-warning rounded" style={{ backgroundColor: `${item.status}`=="default"?'black':`${item.status}`=="Accepted"?"Green":"Red"}}>
+                        <div className="col-12 p-1" style={{ backgroundColor: `${item.status}`=="default"?'black':`${item.status}`=="Accepted"?"Green":"Red" }}>
+                          <div className="row">
+                            <div className="col-3">{item.status}</div>
+                            {/* <div className="col-6 d-flex justify-content-center align-items-center">{item.title}</div>
+                            <div className="col-3 d-flex align-items-center">{item.description}</div> */}
                           </div>
                         </div>
                       </div>
@@ -74,12 +85,23 @@ const Items = () => {
                 return (
                   <>
                     {item.category == "clothes" && (
-                      <div className="row mx-1 mt-1 p-1 border border-warning rounded" style={{ backgroundColor: 'black' }}>
-                        <div className="col-12 p-1" style={{ backgroundColor: 'black' }}>
+                      <div className="row mx-1 mt-1 p-1 border border-warning rounded" style={{ backgroundColor: `${item.status}`=="default"?'black':`${item.status}`=="Accepted"?"Green":"Red"}}>
+                        <div className="col-12 p-1" style={{ backgroundColor: `${item.status}`=="default"?'black':`${item.status}`=="Accepted"?"Green":"Red" }}>
                           <div className="row">
                             <div className="col-3">{item.image}</div>
                             <div className="col-6 d-flex justify-content-center align-items-center">{item.title}</div>
                             <div className="col-3 d-flex align-items-center">{item.description}</div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                    {item.category == "clothes" && item.status != "default" && (
+                      <div className="row mx-1 mt-1 p-1 border border-warning rounded" style={{ backgroundColor: `${item.status}`=="default"?'black':`${item.status}`=="Accepted"?"Green":"Red"}}>
+                        <div className="col-12 p-1" style={{ backgroundColor: `${item.status}`=="default"?'black':`${item.status}`=="Accepted"?"Green":"Red" }}>
+                          <div className="row">
+                            <div className="col-3">{item.status}</div>
+                            {/* <div className="col-6 d-flex justify-content-center align-items-center">{item.title}</div>
+                            <div className="col-3 d-flex align-items-center">{item.description}</div> */}
                           </div>
                         </div>
                       </div>

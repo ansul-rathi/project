@@ -113,27 +113,27 @@ router.put('/addstatus/:id', fetchngo, [
 // })
 
 // ROUTE 3:  Add a new Detail using: POST "/api/status/addstatus". login required
-router.post('/addstatuss/:id', fetchngo, [
-    body('status', 'Status must be there').exists(),
-], async (req, res) => {
-    try {
-        const { status } = req.body;
-        // if there are errors, return Bad request and the errors
-        const errors = validationResult(req);
-        if (!errors.isEmpty()) {
-            return res.status(400).json({ errors: errors.array() });
-        }
-        const acc = new Accept({
-            status, ngo: req.ngo.id, _id:"641925f9d20df1dc767d3438"
-            // status
-        })
-        const savedDetail = await acc.save();
-        res.json(savedDetail);
+// router.post('/addstatuss/:id', fetchngo, [
+//     body('status', 'Status must be there').exists(),
+// ], async (req, res) => {
+//     try {
+//         const { status } = req.body;
+//         // if there are errors, return Bad request and the errors
+//         const errors = validationResult(req);
+//         if (!errors.isEmpty()) {
+//             return res.status(400).json({ errors: errors.array() });
+//         }
+//         const acc = new Accept({
+//             status, ngo: req.ngo.id, _id:"641925f9d20df1dc767d3438"
+//             // status
+//         })
+//         const savedDetail = await acc.save();
+//         res.json(savedDetail);
 
-    } catch (error) {
-        console.error(error.message);
-        res.status(500).send("Internal Server Error");
-    }
-})
+//     } catch (error) {
+//         console.error(error.message);
+//         res.status(500).send("Internal Server Error");
+//     }
+// })
 
 module.exports = router;

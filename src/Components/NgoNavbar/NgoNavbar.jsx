@@ -8,7 +8,7 @@ const NgoNavbar = () => {
   const handleLogOut = (e) => {
     e.preventDefault();
         localStorage.removeItem('token')
-        navigate('/login');
+        navigate('/cate');
 }
 
   return (
