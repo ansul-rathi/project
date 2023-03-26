@@ -9,7 +9,36 @@ const Ngo = () => {
   // Get All Details
   const host = "http://localhost:5000"
   const [details, setDetails] = useState([])
-  const navigate = useNavigate()
+  // const [id, setId] = useState(null);
+  // const [status, setStatus] = useState("default");
+  const navigate = useNavigate();
+
+  const UpdateStatus = async (id, status) => {
+    // e.preventDefault();
+    // const {name, email, password} = credentials;
+    const response = await fetch(`http://localhost:5000/api/status/addstatus/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'auth-token': localStorage.getItem('token')
+      },
+      body: JSON.stringify({ status })
+      // body: JSON.stringify({ title, description, image })
+    });
+    console.log(id);
+    console.log(status);
+    const json = await response.json()
+    console.log(json);
+    // if(json.success){
+    //   // Save the auth token and redirect
+    //   props.showAlert("Items Added Successfully", "success")
+    //   navigate('/itemsbox');
+    // }
+    // else{
+    //   props.showAlert("Invalid Credential", "danger")
+    // }  
+  }
+
   const getDetails = async () => {
     // TODO : API Call
     const response = await fetch(`${host}/api/details/fetchalldetail`, {
@@ -64,8 +93,8 @@ const Ngo = () => {
                     <td colSpan='2'>{item.title}</td>
                     <td colSpan='2'>{item.description}</td>
                     <td>
-                      <button type="button" class="btn btn-success" style={{ marginLeft: '5px' }}>Accept</button><span>-</span>
-                      <button type="button" class="btn btn-danger">Reject</button>
+                      <button onClick={()=>{UpdateStatus(item._id, "Accepted")}} type="button" class="btn btn-success" style={{ marginLeft: '5px' }}>Accept</button><span>-</span>
+                      <button onClick={()=>{UpdateStatus(item._id, "Rejected")}} type="button" class="btn btn-danger">Reject</button>
                     </td>
                   </tr>
                 </tbody>
