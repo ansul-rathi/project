@@ -93,8 +93,9 @@ const Ngo = () => {
                     <td colSpan='2'>{item.title}</td>
                     <td colSpan='2'>{item.description}</td>
                     <td>
-                      <button onClick={()=>{UpdateStatus(item._id, "Accepted")}} type="button" class="btn btn-success" style={{ marginLeft: '5px' }}>Accept</button><span>-</span>
-                      <button onClick={()=>{UpdateStatus(item._id, "Rejected")}} type="button" class="btn btn-danger">Reject</button>
+                      <button onClick={()=>{UpdateStatus(item._id, "Accepted"); window.location.reload(); alert("You have accepted user request");}} style={{ marginLeft: '5px', display: `${item.status=="Rejected" ? 'none': " "}`}} type="button" class="btn btn-success">{item.status==="Accepted"?"Accepted":"Accept"}</button>
+                      <span style={{ display: `${item.status=="default" ? " ": 'none'}`}}>-</span>
+                      <button onClick={()=>{UpdateStatus(item._id, "Rejected"); window.location.reload(); alert("You have rejected user request");}} style={{ marginLeft: `${item.status=="Rejected" ? '5px': " "}`, display: `${item.status=="Accepted" ? 'none': " "}`}} type="button" class="btn btn-danger">{item.status==="Rejected"?"Rejected":"Reject"}</button>
                     </td>
                   </tr>
                 </tbody>
