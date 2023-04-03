@@ -92,13 +92,24 @@ router.post('/login', [
     }
 })
 
-// ROUTE3: Get loggedin User using: POST "/api/auth/getuser". Login required
+// ROUTE3: Get loggedin User using: GET "/api/auth/getuser". Login required
 router.get('/getuser', fetchuser ,async (req,res)=>{
     try{
         userId = req.user.id;
         const user = await User.findById(userId).select("-password");
         res.json(user);
         // res.send(user);
+    }catch(error){
+        console.log(error.mesage);
+        res.status(500).send("Internal Server Error");
+    }
+})
+
+// ROUTE4: Get loggedin User using: GET "/api/auth/getuser". Login required
+router.get('/getuser',async (req,res)=>{
+    try{
+        const user = await User.find();
+        res.json(user);
     }catch(error){
         console.log(error.mesage);
         res.status(500).send("Internal Server Error");

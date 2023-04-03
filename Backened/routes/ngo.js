@@ -94,13 +94,24 @@ router.post('/login', [
     }
 })
 
-// ROUTE3: Get loggedin User using: POST "/api/ngo/getngo". Login required
+// ROUTE3: Get loggedin User using: GET "/api/ngo/getngo". Login required
 router.get('/getngo', fetchngo ,async (req,res)=>{
     try{
         ngoId = req.ngo.id;
         const ngo = await Ngo.findById(ngoId).select("-password");
         res.json(ngo);
         // res.send(user);
+    }catch(error){
+        console.log(error.mesage);
+        res.status(500).send("Internal Server Error");
+    }
+})
+
+// ROUTE3: Get loggedin User using: GET "/api/ngo/getngo". Login required
+router.get('/getngo', async (req,res)=>{
+    try{
+        const ngo = await Ngo.find();
+        res.json(ngo);
     }catch(error){
         console.log(error.mesage);
         res.status(500).send("Internal Server Error");
