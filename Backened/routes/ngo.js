@@ -107,7 +107,7 @@ router.get('/getngo', fetchngo ,async (req,res)=>{
     }
 })
 
-// ROUTE3: Get loggedin User using: GET "/api/ngo/getngo". Login required
+// ROUTE4: Get loggedin User using: GET "/api/ngo/getngo". Login required
 router.get('/getngo', async (req,res)=>{
     try{
         const ngo = await Ngo.find();
