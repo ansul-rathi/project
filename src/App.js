@@ -15,6 +15,7 @@ import SignUp from './Components/SignUp/SignUp';
 import NgoSignUp from './Components/NgoSignUp/NgoSignUp';
 import Ngo from './Components/Ngo/Ngo';
 import Cate from './Components/Cate/Cate'
+import Aboutus from './Components/Aboutus/Aboutus';
 // import Dashboard from './Components/Dashboard/Dashboard';
 
 function App() {
@@ -46,6 +47,8 @@ function App() {
           <Route exact path='/NgoSignUp' element={<NgoSignUp showAlert={showAlert}/>} />
           <Route exact path='/Ngo' element={<Ngo showAlert={showAlert}/>} />
           <Route exact path='/cate' element={<Cate/>} />
+          <Route exact path='/Aboutus' element={<Aboutus/>} />
+
         </Routes>
       </Router>
     </>
