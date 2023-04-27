@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Images.module.css";
-
+import Navbar from "../Navbar/Navbar";
+import Quote from '../Home/Quote';
+import axios from "axios";
 import { Formik, Form, Field } from "formik";
 
 const Images = (props) => {
@@ -32,12 +34,26 @@ const Images = (props) => {
     return error;
   }
 
+  // const validateNgolink = (value) => {
+  //   let error;
+  //   if (!value) {
+  //     error = "*This field is required"
+  //   } else if (value === "Select NGO...") {
+  //     error = "*Choose correct option"
+  //   }
+  //   return error;
+  // }
+
+  // const [text, setText] = useState("Select NGO...");
+  
   const [selectedImage, setSelectedImage] = useState(null);
   const [image, setimage] = useState('');
   const [file, setFile] = useState('');
+  // const [imag, setImag] = useState({ title: "", description: "", text: "" });
 
   const [title, settitle] = useState("")
   const [description, setdescription] = useState("")
+  // const [password, setpassword] = useState("")
   const navigate = useNavigate()
   // title, description, image,
   const handleSubmit = async () => {
@@ -50,26 +66,42 @@ const Images = (props) => {
           'auth-token': localStorage.getItem('token')
         },
         body: JSON.stringify({ title, description })
-        // body: JSON.stringify({ title, description, image })
       });
   
       const json = await response.json()
       console.log(json);
-      if(json.success){
-        // Save the auth token and redirect
-        props.showAlert("Items Added Successfully", "success")
-        navigate('/itemsbox');
-      }
-      else{
-        props.showAlert("Invalid Credential", "danger")
-      }  
+      navigate('/itemsbox');
+      // if(json.success){
+      //     // Save the auth token and redirect
+      //   props.showAlert("Account Created Successfully", "success")
+      // }
+      // else{
+      //   props.showAlert("Invalid Credential", "danger")
+      // }  
     }
 
-  const handleImage = async () => {
+  const onChangesa = async (e) => {
+    setSelectedImage(e.target.files[0])  
+    setFile(e.target.files[0]);
+    console.log(e.target.files);  
+    console.log(e.target.files[0]);  
+    }
+
+    const handleImage = async () => {
       console.log("Images");
       console.log(file);
       const formData = new FormData();
-      formData.append('file',file);
+      formData.append('file',file)
+      // const url="http://localhost:5000/api/details/images";
+      // axios.post(url, formData).then((res)=>{
+      //   console.log(formData);
+      // })
+      // e.preventDefault();
+      // const {name, email, password} = credentials;
+  
+    // image.map((file, index) => {
+    //   formData.append(`file${index}`, file);
+    // });
       const response = await fetch("http://localhost:5000/api/details/images", {
         method: 'POST',
         headers: {
@@ -93,6 +125,7 @@ const Images = (props) => {
     }
 
 
+
   // const handleOnChange = (event) => {
   //   setText(event.target.value);
   // }
@@ -100,6 +133,10 @@ const Images = (props) => {
   // const onChange = (e) => {
   //   setImag({ ...imag, [e.target.name]: e.target.value });
   // };
+
+  // const add =()=>{
+  //   console.log(file);
+  // }
 
   useEffect(() => {
     if (selectedImage) {
@@ -109,6 +146,11 @@ const Images = (props) => {
 
   return (
     <>
+    <Navbar />
+    <Quote />
+    <h1 className="d-flex justify-content-center my-3">Clothes Section</h1>
+    {/* <input type="file" onChange={(e)=>setFile(e.target.files[0])} />
+    <button onClick={add}>Add</button> */}
       <div className={`${styles.container} container my-3 rounded`}>
         <div className="row">
           <div className={`${styles.col1} col-md-6`}>
@@ -135,16 +177,16 @@ const Images = (props) => {
                 type="file"
                 id="select-image"
                 style={{ display: "none" }}
-                onChange={(e) => setSelectedImage(e.target.files[0])}
+                onChange={onChangesa}
                 className="btn-check"
               />
               <label
                 className={`${styles.upload} btn btn-success`}
                 htmlFor="select-image"
               >
-                UPLOAD FROM GALLERYs
+                UPLOAD FROM GALLERY
               </label>
-              <button onClick={handleImage} className="btn btn-dark button">Submit & Continue</button>
+              <button onClick={handleImage} className="btn btn-dark button mb-3">Submit & Continue</button>
             </div>
           </div>
           <div className={`${styles.col2} col-md-6`}>
@@ -354,3 +396,6 @@ const Images = (props) => {
 };
 
 export default Images;
+
+
+

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "./ImagesFootwear.module.css";
+import styles from "./Imagesbooks.module.css";
 import Navbar from "../Navbar/Navbar";
 import Quote from '../Home/Quote';
 import axios from "axios";
 import { Formik, Form, Field } from "formik";
 
-const ImagesFootwear = (props) => {
+const Imagesbooks = (props) => {
   const initialValues = {
     title: "",
     description: "",
@@ -59,7 +59,7 @@ const ImagesFootwear = (props) => {
   const handleSubmit = async () => {
       // e.preventDefault();
       // const {name, email, password} = credentials;
-      const response = await fetch("http://localhost:5000/api/details/adddetail/shoes", {
+      const response = await fetch("http://localhost:5000/api/details/adddetail/books", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -148,7 +148,7 @@ const ImagesFootwear = (props) => {
     <>
     <Navbar />
     <Quote />
-    <h1 className="d-flex justify-content-center my-3">Footwear Section</h1>
+    <h1 className="d-flex justify-content-center my-3">Books Section</h1>
     {/* <input type="file" onChange={(e)=>setFile(e.target.files[0])} />
     <button onClick={add}>Add</button> */}
       <div className={`${styles.container} container my-3 rounded`}>
@@ -395,7 +395,7 @@ const ImagesFootwear = (props) => {
   );
 };
 
-export default ImagesFootwear;
+export default Imagesbooks;
 
 
 

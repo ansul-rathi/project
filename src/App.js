@@ -2,12 +2,13 @@ import './App.css';
 import React, { useState} from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-// import Navbar from './Components/Navbar/Navbar';
-// import Alert from './Components/Alert/Alert';
-// import Quote from './Components/Home/Quote';
+import Navbar from './Components/Navbar/Navbar';
+import Alert from './Components/Alert/Alert';
+import Quote from './Components/Home/Quote';
 import Home from './Components/Home/Home';
 import Images from './Components/Images/Images';
 import ImagesFootwear from './Components/ImagesFootwear/ImagesFootwear';
+import Imagesbooks from './Components/Imagesbooks/Imagesbooks';
 import Items from './Components/Items/Items';
 import Login from './Components/Login/Login';
 import NgoLogin from './Components/NgoLogin/NgoLogin';
@@ -39,7 +40,8 @@ function App() {
           {/* <Route exact path='/' element={<Dashboard />} /> */}
           <Route exact path='/' element={<Home />} />
           <Route exact path='/imagesClothes' element={<Images showAlert={showAlert}/>} />
-          <Route exact path='/imagesfootwear' element={<ImagesFootwear showAlert={showAlert}/>} />
+          <Route exact path='/imagesFootwear' element={<ImagesFootwear showAlert={showAlert}/>} />
+          <Route exact path='/imagesBooks' element={<Imagesbooks showAlert={showAlert}/>} />
           <Route exact path='/itemsbox' element={<Items showAlert={showAlert}/>} />
           <Route exact path='/Login' element={<Login showAlert={showAlert}/>} />
           <Route exact path='/NgoLogin' element={<NgoLogin showAlert={showAlert}/>} />
