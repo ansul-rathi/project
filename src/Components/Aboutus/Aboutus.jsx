@@ -6,6 +6,7 @@ import { Formik, Form, Field } from "formik";
 import { useNavigate, Link } from "react-router-dom";
 import { BsFillPhoneVibrateFill } from 'react-icons/bs';
 import { FaInstagramSquare } from 'react-icons/fa';
+import { AiTwotoneHome } from 'react-icons/ai';
 
 const Aboutus = () => {
   const initialValues = {
@@ -30,8 +31,9 @@ const Aboutus = () => {
   const [image, setImage] = useState("");
   const [details, setDetails] = useState([]);
   const [shouldAnimate, setAnimation] = useState(false);
-  const [hover,setHover] = useState(false);
-  const [hovers,setHovers] = useState(false);
+  const [hover, setHover] = useState(false);
+  const [hovers, setHovers] = useState(false);
+  const [hover_1, setHover_1] = useState(false);
 
   const validateName = (value) => {
     let error;
@@ -71,8 +73,8 @@ const Aboutus = () => {
     let error;
     if (!value) {
       error = "*This field is required";
-    } else if (value.length < 50) {
-      error = "*It must be greater than 50";
+    } else if (value.length < 100) {
+      error = "*It must be greater than 100";
     }
     setDescription(value);
 
@@ -372,14 +374,15 @@ const Aboutus = () => {
           {details.map((item) => {
             return (
               <>
-                <div className="d-flex justify-content-center my-3">
+                <div className="d-flex flex-column justify-content-center align-items-center my-3">
                   <div style={{ borderRadius: '50%', border: '2px solid black', height: '200px', width: '200px' }}>
                     <img className="w-100 h-100 border border-radius rounded-circle" style={{ objectFit: 'cover' }} src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg" alt="" />
                   </div>
+                  <h2 className="my-3"><span class="badge bg-warning text-dark">{item.name}</span></h2>
                 </div>
                 <div className="container mt-4">
                   <div className=" row shadow p-3 mb-5 bg-body rounded border border-4 border-dark">
-                    <div className="col-md-6 p-3 fw-bold" style={{ height: '250px' }}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi debitis, nihil, quam sequi nulla ratione facilis doloremque nisi accusamus delectus autem possimus eaque veritatis. Perspiciatis ex soluta ipsa corporis mollitia eius doloribus reiciendis deleniti! Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus eveniet a corporis ratione odio iste pariatur repellendus. Eos veniam eius ipsam totam illo aperiam qui aliquid neque dolorum. Obcaecati nemo ipsa, quasi magnam facere deleniti quia vel cum velit incidunt, doloribus dolores quisquam voluptas laborum ipsam eaque mollitia delectus enim.</div>
+                    <div className="col-md-6 p-3 fw-bold d-flex justify-content-center align-items-center" style={{ height: '250px' }}>{item.description}</div>
                     <div className="col-md-6 p-3">
                       <div className="w-100 rounded" style={{ height: '250px' }}>
                         <img className="w-25 h-25" style={{ objectFit: 'cover' }} src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg" alt="" />
@@ -423,15 +426,19 @@ const Aboutus = () => {
                           />
                         </a>
                       </div>
-                      <div className="mt-4" onMouseEnter={()=> setHover(true)} onMouseLeave={()=> setHover(false)}>
-                      <a href={`tel:${item.number}`}>
-                        <BsFillPhoneVibrateFill style={{ color: `${hover ? '#FF0000': '#000000'}`}} size={150} />
+                      <div className="mt-4" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
+                        <a href={`tel:${item.number}`}>
+                          <BsFillPhoneVibrateFill style={{ color: `${hover ? '#FF0000' : '#000000'}` }} size={150} />
                         </a>
                       </div>
-                      <div className="mt-4" onMouseEnter={()=> setHovers(true)} onMouseLeave={()=> setHovers(false)}>
-                      <a href={item.instagram}>
-                        <FaInstagramSquare style={{ background: `${hovers ? 'radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%)': ''}`, borderRadius: `${hovers ? '50%': ''}`}} size={150} />
+                      <div className="mt-4" onMouseEnter={() => setHovers(true)} onMouseLeave={() => setHovers(false)}>
+                        <a href={item.instagram}>
+                          <FaInstagramSquare style={{ background: `${hovers ? 'radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%)' : ''}`, borderRadius: `${hovers ? '50%' : ''}` }} size={150} />
                         </a>
+                      </div>
+                      <div className="mt-4" onMouseEnter={() => setHover_1(true)} onMouseLeave={() => setHover_1(false)}>
+                        <AiTwotoneHome style={{ color: `${hover_1 ? 'green' : '#000000'}` }} size={150} />
+                        <h5 className={styles.text_1}>{hover_1 ? item.address : ""}</h5>
                       </div>
                     </div>
                   </div>
