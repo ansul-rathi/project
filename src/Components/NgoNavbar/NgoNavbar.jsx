@@ -23,6 +23,9 @@ const NgoNavbar = () => {
           <button type="button" className="btn btn-danger mx-2" onClick={() => navigate('/cate')}>
             Login
           </button>
+          <button type="button" className="btn btn-danger mx-2" onClick={() => navigate('/Aboutus')}>
+            AboutUs
+          </button>
           <button type="button" className="btn btn-warning mx-2" onClick={handleLogOut}>
             LogOut
           </button>

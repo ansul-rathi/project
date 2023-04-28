@@ -18,7 +18,7 @@ router.get('/fetchallinfo', fetchngo, async (req, res) => {
 // ROUTE 2:  Add a new Detail using: POST "/api/ngoinfo/info". login required
 router.post('/info', fetchngo, [
     body('name', 'Title must be atleast 5 characters').isLength({ min: 2 }),
-    body('address', 'Description must be atleast 10 characters').isLength({ min: 10 }),
+    body('description', 'Description must be atleast 10 characters').isLength({ min: 10 }),
     body('address', 'Address must be atleast 2 characters').isLength({ min: 10 }),
     body('number', 'Phone number must be atleast 10 numbers').isLength({ min: 10 }),
     body('email', 'Phone number must be atleast 10 numbers').isEmail(),
@@ -27,7 +27,7 @@ router.post('/info', fetchngo, [
     try {
         const { name, email, address, description, image, number, dor, instagram } = req.body;
         const ngoinfo = new Ngoinfo({
-            name, email, address, description, number, dor, instagram, ngo: req.ngo.id
+            name, email, address, description, image, number, dor, instagram, ngo: req.ngo.id
         })
         const savedDetail = await ngoinfo.save();
         success = true;

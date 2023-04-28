@@ -218,7 +218,7 @@ const ImagesFootwear = (props) => {
                                 type="text"
                                 className={`form-control ${errors.title && touched.title ? "border-danger" : ""}`}
                                 placeholder='Enter title'
-                                id="tite"
+                                id="title"
                                 name="title"
                                 validate={validateTitle}
                               />
