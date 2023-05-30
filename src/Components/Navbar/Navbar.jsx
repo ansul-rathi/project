@@ -8,7 +8,7 @@ const Navbar = () => {
   const handleLogOut = (e) => {
     e.preventDefault();
         localStorage.removeItem('token')
-        navigate('/cate');
+        navigate('/');
 }
 
   return (
@@ -17,10 +17,10 @@ const Navbar = () => {
         <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
           <i class="fa-solid fa-bars"></i>
         </button>
-        <div className={styles.logo} onClick={()=>{navigate('/')}}>DONATE FOR A CHANGE </div>
+        <div className={styles.logo} onClick={()=>{navigate('/home')}}>DONATE FOR A CHANGE </div>
         {/* <div className={styles.logo} onClick={()=>{navigate('/cate')}}>cate</div> */}
         <div>
-          <button type="button" className="btn btn-danger mx-2" onClick={() => navigate('/cate')}>
+          <button type="button" className="btn btn-danger mx-2" onClick={() => navigate('/')}>
             Login
           </button>
           <button type="button" className="btn btn-warning mx-2" onClick={handleLogOut}>

@@ -38,7 +38,7 @@ function App() {
         {/* <Quote /> */}
         <Routes>
           {/* <Route exact path='/' element={<Dashboard />} /> */}
-          <Route exact path='/' element={<Home />} />
+          <Route exact path='/home' element={<Home />} />
           <Route exact path='/imagesClothes' element={<Images showAlert={showAlert}/>} />
           <Route exact path='/imagesFootwear' element={<ImagesFootwear showAlert={showAlert}/>} />
           <Route exact path='/imagesBooks' element={<Imagesbooks showAlert={showAlert}/>} />
@@ -48,7 +48,7 @@ function App() {
           <Route exact path='/SignUp' element={<SignUp showAlert={showAlert}/>} />
           <Route exact path='/NgoSignUp' element={<NgoSignUp showAlert={showAlert}/>} />
           <Route exact path='/Ngo' element={<Ngo showAlert={showAlert}/>} />
-          <Route exact path='/cate' element={<Cate/>} />
+          <Route exact path='/' element={<Cate/>} />
           <Route exact path='/Aboutus' element={<Aboutus/>} />
 
         </Routes>
