@@ -34,6 +34,7 @@ const Aboutus = () => {
   const [hover, setHover] = useState(false);
   const [hovers, setHovers] = useState(false);
   const [hover_1, setHover_1] = useState(false);
+  const [length, setLength] = useState(0);
 
   const validateName = (value) => {
     let error;
@@ -143,12 +144,13 @@ const Aboutus = () => {
       // Save the auth token and redirect
       alert("You have successfully submitted the form")
       setSubmit(true);
+      window.location.reload();
     }
     else {
       // props.showAlert("Invalid Credential", "danger")
     }
   }
-
+  
   const getDetails = async () => {
     // TODO : API Call
     const response = await fetch("http://localhost:5000/api/ngoinfo/fetchallinfo", {
@@ -158,10 +160,12 @@ const Aboutus = () => {
         'auth-token': localStorage.getItem('token')
       },
     });
-
+    
     const json = await response.json()
     console.log(json)
     setDetails(json)
+    setLength(json.length);
+    console.log(length);
     // console.log(json[0].email);
     const BASE_URL = `mailto:${json[0].email}`;
     console.log(BASE_URL);
@@ -180,7 +184,7 @@ const Aboutus = () => {
   return (
     <>
       <NgoNavbar />
-      {/* {!submit && (
+      {length==0 && (
         <>
           <div className="container">
             <Formik
@@ -368,8 +372,8 @@ const Aboutus = () => {
             </Formik>
           </div>
         </>
-      )} */}
-      {!submit && (
+      )}
+      {length>0 && (
         <>
           {details.map((item) => {
             return (

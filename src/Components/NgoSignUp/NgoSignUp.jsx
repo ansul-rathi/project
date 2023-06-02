@@ -30,11 +30,13 @@ const NgoSignUp = (props) => {
         if (json.success) {
             // Save the auth token and redirect
             props.showAlert("Account Created Successfully", "success")
+            alert("Account Created Successfully")
             localStorage.setItem('token', json.authtoken);
             navigate('/Ngo');
         }
         else {
             props.showAlert("Invalid Credential", "danger")
+            alert(json.error);
         }
     }
 
@@ -49,6 +51,8 @@ const NgoSignUp = (props) => {
         let error;
         if (!value) {
             error = "*This field is required";
+        }else if (value.length < 5) {
+            error = "*It must be greater than 5";
         }
         setname(value)
         return error;

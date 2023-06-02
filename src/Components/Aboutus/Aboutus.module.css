@@ -10,6 +10,7 @@
                 yellow, green, darkgreen);
         -webkit-text-fill-color: transparent;
         -webkit-background-clip: text;
+        width: 150px;
     }
 
 .insta{
