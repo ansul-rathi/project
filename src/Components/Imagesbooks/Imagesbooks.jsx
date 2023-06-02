@@ -49,6 +49,7 @@ const Imagesbooks = (props) => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [image, setimage] = useState('');
   const [file, setFile] = useState('');
+  const [button, setButton] = useState(false);
   // const [imag, setImag] = useState({ title: "", description: "", text: "" });
 
   const [title, settitle] = useState("")
@@ -112,6 +113,7 @@ const Imagesbooks = (props) => {
       });
       alert("Data saved");
       console.log("formData")
+      setButton(true);
       const json = await response.json()
       console.log(json);
       if(json.success){
@@ -186,7 +188,7 @@ const Imagesbooks = (props) => {
               >
                 UPLOAD FROM GALLERY
               </label>
-              <button onClick={handleImage} className="btn btn-dark button mb-3">Submit & Continue</button>
+              <button onClick={handleImage} disabled={button} className="btn btn-dark button mb-3">Submit & Continue</button>
             </div>
           </div>
           <div className={`${styles.col2} col-md-6`}>
