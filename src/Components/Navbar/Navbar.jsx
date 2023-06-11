@@ -20,9 +20,9 @@ const Navbar = () => {
         <div className={styles.logo} onClick={()=>{navigate('/home')}}>DONATE FOR A CHANGE </div>
         {/* <div className={styles.logo} onClick={()=>{navigate('/cate')}}>cate</div> */}
         <div>
-          <button type="button" className="btn btn-danger mx-2" onClick={() => navigate('/')}>
+          {/* <button type="button" className="btn btn-danger mx-2" onClick={() => navigate('/')}>
             Login
-          </button>
+          </button> */}
           <button type="button" className="btn btn-warning mx-2" onClick={handleLogOut}>
             LogOut
           </button>
