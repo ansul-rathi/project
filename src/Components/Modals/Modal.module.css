@@ -1,0 +1,60 @@
+*{
+    overflow-x: hidden;
+}
+
+.modalHeader{
+    background-color: rgb(33, 33, 33);
+}
+
+.modal{
+    height: 100vh;
+    position: fixed;
+    width: 20%;
+    top: 0;
+    left: 0;
+    background-color: rgb(8, 9, 23);
+}
+
+.img{
+    width: 80px;
+    height: 80px;
+    border: 2px solid black;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: white;
+}
+
+.desc{
+    height: 100px;
+}
+
+.name{
+    height: 30px;
+    font-weight: 800;
+}
+
+.container{
+    color: black;
+}
+
+.row{
+    padding: 12px 2px;
+    cursor: pointer;
+}
+
+.col{
+    color: #ffc107;
+    font-size: 1.2rem;
+}
+
+.col1{
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+@media screen and (max-width: 768px) {
+    .modal{
+        width: 70%;
+    }
+    
+}

@@ -8,13 +8,15 @@ const Navbar = () => {
   const handleLogOut = (e) => {
     e.preventDefault();
         localStorage.removeItem('token')
+        localStorage.removeItem('name')
+        localStorage.removeItem('email')
         navigate('/');
 }
 
   return (
     <>
       <div className={`${styles.nav} d-flex align-items-center justify-content-between`}>
-        <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModals">
           <i class="fa-solid fa-bars"></i>
         </button>
         <div className={styles.logo} onClick={()=>{navigate('/home')}}>DONATE FOR A CHANGE </div>

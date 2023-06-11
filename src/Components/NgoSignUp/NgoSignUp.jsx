@@ -32,6 +32,8 @@ const NgoSignUp = (props) => {
             props.showAlert("Account Created Successfully", "success")
             alert("Account Created Successfully")
             localStorage.setItem('token', json.authtoken);
+            localStorage.setItem('name', name);
+            localStorage.setItem('email', email);
             navigate('/Ngo');
         }
         else {

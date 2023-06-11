@@ -106,7 +106,7 @@ router.get('/getuser', fetchuser ,async (req,res)=>{
 })
 
 // ROUTE4: Get loggedin User using: GET "/api/auth/getuser". Login required
-router.get('/getuser',async (req,res)=>{
+router.get('/getusers',async (req,res)=>{
     try{
         const user = await User.find();
         res.json(user);

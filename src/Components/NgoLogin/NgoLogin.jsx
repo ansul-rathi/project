@@ -28,6 +28,7 @@ const NgoLogin = (props) => {
             props.showAlert("Account Created Successfully", "success")
             alert("Account Created Successfully")
             localStorage.setItem('token', json.authtoken);
+            localStorage.setItem('email', email);
             navigate('/Ngo');
         }
         else {

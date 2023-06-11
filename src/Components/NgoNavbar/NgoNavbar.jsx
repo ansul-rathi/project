@@ -1,13 +1,15 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import styles from './NgoNavbar.module.css'
-import Modal from '../Modal/Modal'
+import Modal from '../Modals/Modal'
 
 const NgoNavbar = () => {
   const navigate = useNavigate();
   const handleLogOut = (e) => {
     e.preventDefault();
     localStorage.removeItem('token')
+    localStorage.removeItem('name')
+    localStorage.removeItem('email')
     navigate('/');
   }
 
