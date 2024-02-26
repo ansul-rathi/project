@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 const Ngo = () => {
   // Get All Details
-  const host = "http://localhost:5000"
+  const host = "https://donationsystembackendproject.onrender.com"
   const [details, setDetails] = useState([])
   // const [id, setId] = useState(null);
   // const [status, setStatus] = useState("default");
@@ -16,7 +16,7 @@ const Ngo = () => {
   const UpdateStatus = async (id, status) => {
     // e.preventDefault();
     // const {name, email, password} = credentials;
-    const response = await fetch(`http://localhost:5000/api/status/addstatus/${id}`, {
+    const response = await fetch(`https://donationsystembackendproject.onrender.com/api/status/addstatus/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

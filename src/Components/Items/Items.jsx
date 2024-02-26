@@ -6,7 +6,7 @@ import Quote from '../Home/Quote';
 
 const Items = () => {
   // Get All Details
-  const host = "http://localhost:5000"
+  const host = "https://donationsystembackendproject.onrender.com"
   const [details, setDetails] = useState([])
   const navigate = useNavigate()
   const getDetails = async () => {

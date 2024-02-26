@@ -14,7 +14,7 @@ const Modal = () => {
 
   const getDetails = async () => {
     // TODO : API Call
-    const response = await fetch(`http://localhost:5000/api/auth/getuser`, {
+    const response = await fetch(`https://donationsystembackendproject.onrender.com/api/auth/getuser`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

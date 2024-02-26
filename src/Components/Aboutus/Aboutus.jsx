@@ -127,7 +127,7 @@ const Aboutus = () => {
   const handleSubmit = async () => {
     // e.preventDefault();
     // const {name, email, password} = credentials;
-    const response = await fetch("http://localhost:5000/api/ngoinfo/info", {
+    const response = await fetch("https://donationsystembackendproject.onrender.com/api/ngoinfo/info", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -153,7 +153,7 @@ const Aboutus = () => {
   
   const getDetails = async () => {
     // TODO : API Call
-    const response = await fetch("http://localhost:5000/api/ngoinfo/fetchallinfo", {
+    const response = await fetch("https://donationsystembackendproject.onrender.com/api/ngoinfo/fetchallinfo", {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

@@ -60,7 +60,7 @@ const Imagesbooks = (props) => {
   const handleSubmit = async () => {
       // e.preventDefault();
       // const {name, email, password} = credentials;
-      const response = await fetch("http://localhost:5000/api/details/adddetail/books", {
+      const response = await fetch("https://donationsystembackendproject.onrender.com/api/details/adddetail/books", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -93,7 +93,7 @@ const Imagesbooks = (props) => {
       console.log(file);
       const formData = new FormData();
       formData.append('file',file)
-      // const url="http://localhost:5000/api/details/images";
+      // const url="https://donationsystembackendproject.onrender.com/api/details/images";
       // axios.post(url, formData).then((res)=>{
       //   console.log(formData);
       // })
@@ -103,7 +103,7 @@ const Imagesbooks = (props) => {
     // image.map((file, index) => {
     //   formData.append(`file${index}`, file);
     // });
-      const response = await fetch("http://localhost:5000/api/details/images", {
+      const response = await fetch("https://donationsystembackendproject.onrender.com/api/details/images", {
         method: 'POST',
         headers: {
           // 'Content-Type': 'application/json',
