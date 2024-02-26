@@ -10,6 +10,8 @@ const Modal = () => {
     navigate('/itemsbox')
   }
 
+  console.log("dnefjnj")
+
   const getDetails = async () => {
     // TODO : API Call
     const response = await fetch(`http://localhost:5000/api/auth/getuser`, {
@@ -56,40 +58,8 @@ const Modal = () => {
                   <div className={`${styles.row} row`}>
                     <div className="col-12">
                       <div className="row">
-                        <div className={`${styles.col} col-2`}><i className="fa-solid fa-gift"></i></div>
-                        <div className={`${styles.col1} col-10 text-white`}>Your current Box</div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className={`${styles.row} row`}>
-                    <div className="col-12">
-                      <div className="row">
                         <div className={`${styles.col} col-2`}><i class="fa-solid fa-heart"></i></div>
                         <div className={`${styles.col1} col-10 text-white`} onClick={DonationHistory}>Donation History</div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className={`${styles.row} row`}>
-                    <div className="col-12">
-                      <div className="row">
-                        <div className={`${styles.col} col-2`}><i className="fa-solid fa-user"></i></div>
-                        <div className={`${styles.col1} col-10 text-white`}>Profile Settings</div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className={`${styles.row} row`}>
-                    <div className="col-12">
-                      <div className="row">
-                        <div className={`${styles.col} col-2`}><i className="fa-solid fa-circle-question"></i></div>
-                        <div className={`${styles.col1} col-10 text-white`}>Help</div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className={`${styles.row} row`}>
-                    <div className="col-12">
-                      <div className="row">
-                        <div className={`${styles.col} col-2`}><i className="fa-solid fa-circle-info"></i></div>
-                        <div className={`${styles.col1} col-10 text-white`}>About Us</div>
                       </div>
                     </div>
                   </div>

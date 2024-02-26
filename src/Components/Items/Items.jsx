@@ -47,15 +47,15 @@ const Items = () => {
             </div>
             <div className={`${styles.entries} box w-100 btn btn-danger`}>
               {details.map((item) => {
+                {console.log(item,"e;lmcrkfn")}
                 return (
                   <>
                     {item.category == "shoes" && (
                       <div className="row mx-1 mt-1 p-1 border border-warning rounded" style={{ backgroundColor: `${item.status}`=="default"?'black':`${item.status}`=="Accepted"?"Green":"Red"}}>
                         <div className="col-12 p-1" style={{ backgroundColor: `${item.status}`=="default"?'black':`${item.status}`=="Accepted"?"Green":"Red" }}>
                           <div className="row">
-                            <div className="col-3">{item.image}</div>
-                            <div className="col-6 d-flex justify-content-center align-items-center">{item.title}</div>
-                            <div className="col-3 d-flex align-items-center">{item.description}</div>
+                            <div className="col-12 d-flex justify-content-around align-items-center"><span style={{color: 'white', fontWeight: 'bold', }}>Title</span>{item.title}</div>
+                            <div className="col-12 d-flex justify-content-around align-items-center"><span style={{color: 'white', fontWeight: 'bold'}}>Description</span>{item.description}</div>
                           </div>
                         </div>
                       </div>
@@ -64,7 +64,7 @@ const Items = () => {
                       <div className="row mx-1 mt-1 p-1 border border-warning rounded" style={{ backgroundColor: 'white' }}>
                         <div className="col-12 p-1" style={{ backgroundColor: 'white' }}>
                           <div className="row">
-                            <div className="col-3 text-dark fw-bold">{item.status} &#x1F603;</div>
+                            <div className="col-12 text-dark fw-bold">{item.status} &#x1F603;</div>
                             {/* <div className="col-6 d-flex justify-content-center align-items-center">{item.title}</div>
                             <div className="col-3 d-flex align-items-center">{item.description}</div> */}
                           </div>
@@ -75,7 +75,7 @@ const Items = () => {
                       <div className="row mx-1 mt-1 p-1 border border-warning rounded" style={{ backgroundColor: 'white' }}>
                         <div className="col-12 p-1" style={{ backgroundColor: 'white' }}>
                           <div className="row">
-                            <div className="col-3 text-dark fw-bold">{item.status} &#128532;</div>
+                            <div className="col-12 text-dark fw-bold">{item.status} &#128532;</div>
                             {/* <div className="col-6 d-flex justify-content-center align-items-center">{item.title}</div>
                             <div className="col-3 d-flex align-items-center">{item.description}</div> */}
                           </div>
@@ -99,9 +99,8 @@ const Items = () => {
                       <div className="row mx-1 mt-1 p-1 border border-warning rounded" style={{ backgroundColor: `${item.status}`=="default"?'black':`${item.status}`=="Accepted"?"Green":"Red"}}>
                         <div className="col-12 p-1" style={{ backgroundColor: `${item.status}`=="default"?'black':`${item.status}`=="Accepted"?"Green":"Red" }}>
                           <div className="row">
-                            <div className="col-3">{item.image}</div>
-                            <div className="col-6 d-flex justify-content-center align-items-center">{item.title}</div>
-                            <div className="col-3 d-flex align-items-center">{item.description}</div>
+                            <div className="col-12 d-flex justify-content-around align-items-center"><span style={{color: 'white', fontWeight: 'bold'}}>Title</span>{item.title}</div>
+                            <div className="col-12 d-flex justify-content-around align-items-center"><span style={{color: 'white', fontWeight: 'bold'}}>Description</span>{item.description}</div>
                           </div>
                         </div>
                       </div>
@@ -110,7 +109,7 @@ const Items = () => {
                       <div className="row mx-1 mt-1 p-1 border border-warning rounded" style={{ backgroundColor: 'white' }}>
                         <div className="col-12 p-1" style={{ backgroundColor: 'white' }}>
                           <div className="row">
-                            <div className="col-3 text-dark fw-bold">{item.status} &#x1F603;</div>
+                            <div className="col-12 text-dark fw-bold">{item.status} &#x1F603;</div>
                             {/* <div className="col-6 d-flex justify-content-center align-items-center">{item.title}</div>
                             <div className="col-3 d-flex align-items-center">{item.description}</div> */}
                           </div>
@@ -121,7 +120,7 @@ const Items = () => {
                       <div className="row mx-1 mt-1 p-1 border border-warning rounded" style={{ backgroundColor: 'white' }}>
                         <div className="col-12 p-1" style={{ backgroundColor: 'white' }}>
                           <div className="row">
-                            <div className="col-3 text-dark fw-bold">{item.status} &#128532;</div>
+                            <div className="col-12 text-dark fw-bold">{item.status} &#128532;</div>
                             {/* <div className="col-6 d-flex justify-content-center align-items-center">{item.title}</div>
                             <div className="col-3 d-flex align-items-center">{item.description}</div> */}
                           </div>
@@ -145,9 +144,8 @@ const Items = () => {
                       <div className="row mx-1 mt-1 p-1 border border-warning rounded" style={{ backgroundColor: `${item.status}`=="default"?'black':`${item.status}`=="Accepted"?"Green":"Red"}}>
                         <div className="col-12 p-1" style={{ backgroundColor: `${item.status}`=="default"?'black':`${item.status}`=="Accepted"?"Green":"Red" }}>
                           <div className="row">
-                            <div className="col-3">{item.image}</div>
-                            <div className="col-6 d-flex justify-content-center align-items-center">{item.title}</div>
-                            <div className="col-3 d-flex align-items-center">{item.description}</div>
+                            <div className="col-12 d-flex justify-content-around align-items-center"><span style={{color: 'white', fontWeight: 'bold'}}>Title</span>{item.title}</div>
+                            <div className="col-12 d-flex justify-content-around align-items-center"><span style={{color: 'white', fontWeight: 'bold'}}>Description</span>{item.description}</div>
                           </div>
                         </div>
                       </div>
@@ -156,7 +154,7 @@ const Items = () => {
                       <div className="row mx-1 mt-1 p-1 border border-warning rounded" style={{ backgroundColor: 'white' }}>
                         <div className="col-12 p-1" style={{ backgroundColor: 'white' }}>
                           <div className="row">
-                            <div className="col-3 text-dark fw-bold">{item.status} &#x1F603;</div>
+                            <div className="col-12 text-dark fw-bold">{item.status} &#x1F603;</div>
                             {/* <div className="col-6 d-flex justify-content-center align-items-center">{item.title}</div>
                             <div className="col-3 d-flex align-items-center">{item.description}</div> */}
                           </div>
@@ -167,7 +165,7 @@ const Items = () => {
                       <div className="row mx-1 mt-1 p-1 border border-warning rounded" style={{ backgroundColor: 'white' }}>
                         <div className="col-12 p-1" style={{ backgroundColor: 'white' }}>
                           <div className="row">
-                            <div className="col-3 text-dark fw-bold">{item.status} &#128532;</div>
+                            <div className="col-12 text-dark fw-bold">{item.status} &#128532;</div>
                             {/* <div className="col-6 d-flex justify-content-center align-items-center">{item.title}</div>
                             <div className="col-3 d-flex align-items-center">{item.description}</div> */}
                           </div>

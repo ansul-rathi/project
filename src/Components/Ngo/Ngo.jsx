@@ -83,13 +83,13 @@ const Ngo = () => {
                     <th scope="col" colSpan='2'>item description</th>
                   </tr>
                 </thead>
-        {details.map((item) => {
+        {details.map((item, index) => {
           return (
             <>
                 <tbody>
                   <tr>
                     <th scope="row"></th>
-                    <th scope="row">1</th>
+                    <th scope="row">{index+1}</th>
                     <td colSpan='2'>{item.title}</td>
                     <td colSpan='2'>{item.description}</td>
                     <td>

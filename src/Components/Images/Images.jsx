@@ -82,10 +82,11 @@ const Images = (props) => {
     }
 
   const onChangesa = async (e) => {
+    console.log(e,"wmlvelk")
     setSelectedImage(e.target.files[0])  
     setFile(e.target.files[0]);
-    console.log(e.target.files);  
-    console.log(e.target.files[0]);  
+    console.log(e.target.files,"c ec");  
+    console.log(e.target.files[0],"kcml");  
     }
 
     const handleImage = async () => {
@@ -111,6 +112,7 @@ const Images = (props) => {
         },
         body:formData
       });
+      console.log(response,"response")
       alert("Data saved");
       console.log("formData")
       setButton(true)
@@ -243,7 +245,9 @@ const Images = (props) => {
                                 id="description"
                                 name="description"
                                 validate={validateDescription}
+                                maxLength={30}
                               />
+                              <p style={{color: 'red'}}>MaxLength is 30</p>
                               {
                                 errors.description && touched.description &&
                                 <div className="form-text text-danger">

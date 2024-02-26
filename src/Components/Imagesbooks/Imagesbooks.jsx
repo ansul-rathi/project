@@ -243,7 +243,9 @@ const Imagesbooks = (props) => {
                                 id="description"
                                 name="description"
                                 validate={validateDescription}
-                              />
+                                maxLength={30}
+                                />
+                                <p style={{color: 'red'}}>MaxLength is 30</p>
                               {
                                 errors.description && touched.description &&
                                 <div className="form-text text-danger">

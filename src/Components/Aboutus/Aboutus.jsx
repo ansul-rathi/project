@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import NgoNavbar from '../NgoNavbar/NgoNavbar';
 import styles from "./Aboutus.module.css";
-import { MailIcon } from 'react-mail-icon'
+// import { MailIcon } from 'react-mail-icon'
 import { Formik, Form, Field } from "formik";
 import { useNavigate, Link } from "react-router-dom";
 import { BsFillPhoneVibrateFill } from 'react-icons/bs';
@@ -414,22 +414,6 @@ const Aboutus = () => {
                 <div className="container mt-4">
                   <div className=" row shadow p-3 mb-5 bg-body rounded border border-4 border-dark">
                     <div className="d-flex justify-content-around flex-wrap">
-                      <div>
-                        <a href={`mailto:${item.email}`}>
-                          <MailIcon
-                            mailBackFoldColor="#2874A6"
-                            mailTopFoldColor="#2E86C1"
-                            mailLeftFoldColor="#3498DB"
-                            mailRightFoldColor="#5DADE2"
-                            letterBackgroundColor="#FFFFFF"
-                            letterBorderColor="#1ABC9C"
-                            letterTextColor="#1ABC9C"
-                            shouldAnimateOpen={shouldAnimate}
-                            shouldAnimateDown={shouldAnimate}
-                            shouldAnimateOnHover
-                          />
-                        </a>
-                      </div>
                       <div className="mt-4" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
                         <a href={`tel:${item.number}`}>
                           <BsFillPhoneVibrateFill style={{ color: `${hover ? '#FF0000' : '#000000'}` }} size={150} />
@@ -455,3 +439,23 @@ const Aboutus = () => {
     </>)
 }
 export default Aboutus;
+
+
+
+
+// <div>
+//                         <a href={`mailto:${item.email}`}>
+//                           <MailIcon
+//                             mailBackFoldColor="#2874A6"
+//                             mailTopFoldColor="#2E86C1"
+//                             mailLeftFoldColor="#3498DB"
+//                             mailRightFoldColor="#5DADE2"
+//                             letterBackgroundColor="#FFFFFF"
+//                             letterBorderColor="#1ABC9C"
+//                             letterTextColor="#1ABC9C"
+//                             shouldAnimateOpen={shouldAnimate}
+//                             shouldAnimateDown={shouldAnimate}
+//                             shouldAnimateOnHover
+//                           />
+//                         </a>
+//                       </div>
