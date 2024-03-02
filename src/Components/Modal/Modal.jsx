@@ -9,6 +9,9 @@ const Modal = () => {
   const DonationHistory = () => {
     navigate('/itemsbox')
   }
+  const Home = () => {
+    navigate('/home')
+  }
 
   console.log("dnefjnj")
 
@@ -57,7 +60,15 @@ const Modal = () => {
                 <div className={`${styles.container} container`}>
                   <div className={`${styles.row} row`}>
                     <div className="col-12">
-                      <div className="row">
+                      <div className="row d-flex align-items-center">
+                        <div className={`${styles.col} col-2`}><i class="fa-solid fa-heart"></i></div>
+                        <div className={`${styles.col1} col-10 text-white`} onClick={Home}>Home</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className={`${styles.row} row`}>
+                    <div className="col-12">
+                      <div className="row d-flex align-items-center">
                         <div className={`${styles.col} col-2`}><i class="fa-solid fa-heart"></i></div>
                         <div className={`${styles.col1} col-10 text-white`} onClick={DonationHistory}>Donation History</div>
                       </div>

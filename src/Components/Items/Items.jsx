@@ -26,7 +26,7 @@ const Items = () => {
 
   useEffect(() => {
     if (localStorage.getItem('token')) {
-      getDetails()
+      getDetails();
     }
     else {
       // redirect

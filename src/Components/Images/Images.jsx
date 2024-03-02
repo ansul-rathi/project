@@ -50,6 +50,8 @@ const Images = (props) => {
   const [image, setimage] = useState('');
   const [file, setFile] = useState('');
   const [button, setButton] = useState(false);
+  const [imageLoading, setImageLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   // const [imag, setImag] = useState({ title: "", description: "", text: "" });
 
   const [title, settitle] = useState("")
@@ -58,6 +60,7 @@ const Images = (props) => {
   const navigate = useNavigate()
   // title, description, image,
   const handleSubmit = async () => {
+    setLoading(true);
       // e.preventDefault();
       // const {name, email, password} = credentials;
       const response = await fetch("https://donationsystembackendproject.onrender.com/api/details/adddetail/clothes", {
@@ -72,6 +75,7 @@ const Images = (props) => {
       const json = await response.json()
       console.log(json);
       navigate('/itemsbox');
+      setLoading(false);
       // if(json.success){
       //     // Save the auth token and redirect
       //   props.showAlert("Account Created Successfully", "success")
@@ -90,20 +94,11 @@ const Images = (props) => {
     }
 
     const handleImage = async () => {
+      setImageLoading(true);
       console.log("Images");
       console.log(file);
       const formData = new FormData();
       formData.append('file',file)
-      // const url="https://donationsystembackendproject.onrender.com/api/details/images";
-      // axios.post(url, formData).then((res)=>{
-      //   console.log(formData);
-      // })
-      // e.preventDefault();
-      // const {name, email, password} = credentials;
-  
-    // image.map((file, index) => {
-    //   formData.append(`file${index}`, file);
-    // });
       const response = await fetch("https://donationsystembackendproject.onrender.com/api/details/images", {
         method: 'POST',
         headers: {
@@ -117,6 +112,7 @@ const Images = (props) => {
       console.log("formData")
       setButton(true)
       const json = await response.json()
+      setImageLoading(false);
       console.log(json);
       if(json.success){
         // Save the auth token and redirect
@@ -190,7 +186,8 @@ const Images = (props) => {
               >
                 UPLOAD FROM GALLERY
               </label>
-              <button onClick={handleImage} disabled={button} className="btn btn-dark button mb-3">Submit & Continue</button>
+              <button onClick={handleImage} disabled={button} className="btn btn-dark button mb-3">
+              {imageLoading ? 'Submitting...' : 'Submit & Continue'}</button>
             </div>
           </div>
           <div className={`${styles.col2} col-md-6`}>
@@ -287,7 +284,7 @@ const Images = (props) => {
                           <div className="col-12">
                             <div className="my-2">
                               <div className="d-grid ms-auto">
-                                <button type="submit" className="btn btn-dark button">Submit and Continue</button>
+                                <button type="submit" className="btn btn-dark button">{loading ? 'Submitting...' : 'Submit and Continue'}</button>
                               </div>
                             </div>
                           </div>

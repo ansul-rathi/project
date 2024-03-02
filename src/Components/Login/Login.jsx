@@ -8,9 +8,11 @@ import { Formik, Form, Field } from "formik";
 
 const Login = (props) => {
   const navigate = useNavigate()
-  const [email, setemail] = useState("")
-  const [password, setpassword] = useState("")
+  const [email, setemail] = useState("");
+  const [password, setpassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const handleSubmit = async () => {
+    setLoading(true);
     // e.preventDefault();
     // const {name, email, password} = credentials;
     const response = await fetch("https://donationsystembackendproject.onrender.com/api/auth/login", {
@@ -32,11 +34,14 @@ const Login = (props) => {
       // localStorage.setItem('name', name);
       localStorage.setItem('email', email);
       navigate('/home');
+      setLoading(false);
     }
     else {
+      setLoading(false);
       props.showAlert("Invalid Credential", "danger")
       alert(json.error)
     }
+    setLoading(false)
   }
 
   const validateEmail = (value) => {
@@ -123,13 +128,17 @@ const Login = (props) => {
                         Forgot Password ?
                       </p>
                       <div className="mb-5 col-3 d-grid mx-auto">
-                        <button type="submit" className="btn btn-dark">
-                          <CgLogIn className="me-1" />
+                        <button type="submit" className="btn btn-dark" loading={loading}>
+                        {loading ? 'login...' : (
+                            <>
+                                 <CgLogIn className="me-1" />
                           Login
+                            </>
+                        )}
                         </button>
                       </div>
                       <p className="text-center">
-                        New User ?{" "}
+                        New User ?
                         <span
                           onClick={() => navigate("/signup")}
                           className="ms-1 text-dark fw-bold text-decoration-underline"
