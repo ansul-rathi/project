@@ -95,7 +95,7 @@ const SignUp = (props) => {
             <div className="card border-dark w-50">
               <div className="card-body">
                 <h3 className="text-dark d-flex justify-content-center align-items-center">Sign Up</h3>
-                <p className="text-muted">
+                <p className="text-muted text-center">
                   Please fill in this form to create an account!
                 </p>
                 <hr

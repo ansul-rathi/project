@@ -108,7 +108,7 @@ const NgoSignUp = (props) => {
             <div className="card border-dark">
               <div className="card-body">
                 <h3 className="text-dark text-center">Ngo Sign Up</h3>
-                <p className="text-muted">
+                <p className="text-muted text-center">
                   Please fill in this form to create an account!
                 </p>
                 <hr

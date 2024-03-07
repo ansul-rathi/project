@@ -81,7 +81,7 @@ const NgoLogin = (props) => {
                     opacity: "1",
                   }}
                 />
-                <h5 className="card-title text-center mt-5">
+                <h5 className="card-title text-center mt-3">
                   Welcome to Donation
                   <span className="mx-2" style={{color: 'red'}}>Camp</span>
                 </h5>
@@ -158,6 +158,9 @@ const NgoLogin = (props) => {
               </div>
             </div>
           </div>
+        </div>
+        <div className="d-flex justify-content-center align-items-center mt-5">
+        <button type="button" className="btn btn-success" onClick={() => navigate("/")}>Continue to User Login <CgLogIn className="me-1" /></button>
         </div>
       </div>
     </>
