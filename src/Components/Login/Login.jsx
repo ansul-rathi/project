@@ -81,7 +81,7 @@ const Login = (props) => {
                     opacity: "1",
                   }}
                 />
-                <h5 className="card-title text-center mt-5">
+                <h5 className="card-title text-center mt-3 mb-4">
                   Welcome to Donation
                   <span className="mx-2" style={{color: 'red'}}>Camp</span>
                 </h5>
