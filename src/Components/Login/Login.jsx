@@ -70,10 +70,10 @@ const Login = (props) => {
     <>
       <div className="container mt-5">
         <div className="row">
-          <div className="col-md-6 m-auto">
-            <div className="card border-dark h-100">
+          <div className="col-md-12 m-auto d-flex justify-content-center align-items-center">
+            <div className="card border-dark h-100 w-50">
               <div className="card-body">
-                <h3 className="text-dark">Login</h3>
+                <h3 className="text-dark d-flex justify-content-center align-items-center">Login</h3>
                 <hr
                   style={{
                     color: "#000",
@@ -83,11 +83,8 @@ const Login = (props) => {
                 />
                 <h5 className="card-title text-center mt-5">
                   Welcome to Donation
-                  <span className="btn btn-success mx-2">Camp</span>
+                  <span className="mx-2" style={{color: 'red'}}>Camp</span>
                 </h5>
-                <p className="text-center text-muted mt-3 mb-5">
-                  Enter your credentials and start journey with us.
-                </p>
                 <Formik
                   initialValues={{
                     email: "",
@@ -119,15 +116,7 @@ const Login = (props) => {
                         />
                         {errors.password && touched.password && <div className="form-text text-danger">{errors.password}</div>}
                       </div>
-                      <p
-                        onClick={() => navigate("/resetPassword")}
-                        id="forgetPassword"
-                        className={`${styles.forgotPassword} text-end text-dark mb-3 fw-bold`}
-                        style={{ cursor: "pointer" }}
-                      >
-                        Forgot Password ?
-                      </p>
-                      <div className="mb-5 col-3 d-grid mx-auto">
+                      <div className="mb-3 col-3 d-grid mx-auto">
                         <button type="submit" className="btn btn-dark" loading={loading}>
                         {loading ? 'login...' : (
                             <>
@@ -153,13 +142,9 @@ const Login = (props) => {
               </div>
             </div>
           </div>
-          <div className={`${styles.right} col-md-6 m-auto`}>
-            <img
-              className={`${styles.img} img-fluid mt-4`}
-              src="./Images/login.svg"
-              alt="login"
-            />
-          </div>
+        </div>
+        <div className="d-flex justify-content-center align-items-center mt-5">
+        <button type="button" className="btn btn-success" onClick={() => navigate("/NgoLogin")}>Continue to Ngo Login <CgLogIn className="me-1" /></button>
         </div>
       </div>
     </>

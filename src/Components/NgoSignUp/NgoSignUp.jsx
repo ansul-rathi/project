@@ -104,19 +104,10 @@ const NgoSignUp = (props) => {
     <>
       <div className="container mt-5">
         <div className="row">
-          <div
-            className={`${styles.left} col-md-6 d-flex justify-content-center m-auto`}
-          >
-            <img
-              className={`${styles.img} img-fluid`}
-              src="./Images/signup.png"
-              alt="welcome"
-            />
-          </div>
           <div className="col-md-6 m-auto">
             <div className="card border-dark">
               <div className="card-body">
-                <h3 className="text-dark">Ngo Sign Up</h3>
+                <h3 className="text-dark text-center">Ngo Sign Up</h3>
                 <p className="text-muted">
                   Please fill in this form to create an account!
                 </p>
@@ -129,7 +120,7 @@ const NgoSignUp = (props) => {
                 />
                 <Formik initialValues={initialValues} onSubmit={handleSubmit}>
                   {({ errors, touched }) => (
-                    <Form className="mt-5">
+                    <Form className="mt-4">
                       <div className="mb-3">
                         <Field
                           type="text"

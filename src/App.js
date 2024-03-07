@@ -43,12 +43,12 @@ function App() {
           <Route exact path='/imagesFootwear' element={<ImagesFootwear showAlert={showAlert}/>} />
           <Route exact path='/imagesBooks' element={<Imagesbooks showAlert={showAlert}/>} />
           <Route exact path='/itemsbox' element={<Items showAlert={showAlert}/>} />
-          <Route exact path='/Login' element={<Login showAlert={showAlert}/>} />
+          <Route exact path='/' element={<Login showAlert={showAlert}/>} />
           <Route exact path='/NgoLogin' element={<NgoLogin showAlert={showAlert}/>} />
           <Route exact path='/SignUp' element={<SignUp showAlert={showAlert}/>} />
           <Route exact path='/NgoSignUp' element={<NgoSignUp showAlert={showAlert}/>} />
           <Route exact path='/Ngo' element={<Ngo showAlert={showAlert}/>} />
-          <Route exact path='/' element={<Cate/>} />
+          {/* <Route exact path='/' element={<Cate/>} /> */}
           <Route exact path='/Aboutus' element={<Aboutus/>} />
 
         </Routes>

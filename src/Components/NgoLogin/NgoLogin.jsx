@@ -73,7 +73,7 @@ const NgoLogin = (props) => {
           <div className="col-md-6 m-auto">
             <div className="card border-dark h-100">
               <div className="card-body">
-                <h3 className="text-dark">Ngo Login</h3>
+                <h3 className="text-dark text-center">Ngo Login</h3>
                 <hr
                   style={{
                     color: "#000",
@@ -83,11 +83,8 @@ const NgoLogin = (props) => {
                 />
                 <h5 className="card-title text-center mt-5">
                   Welcome to Donation
-                  <span className="btn btn-success mx-2">Camp</span>
+                  <span className="mx-2" style={{color: 'red'}}>Camp</span>
                 </h5>
-                <p className="text-center text-muted mt-3 mb-5">
-                  Enter your credentials and start journey with us.
-                </p>
                 <Formik
                   initialValues={{
                     email: "",
@@ -97,7 +94,7 @@ const NgoLogin = (props) => {
                 >
                   {({ errors, touched }) => (
                     <Form>
-                      <div className="mb-4">
+                      <div className="mb-4 mt-3">
                         <Field
                           type="email"
                           className={`form-control ${
@@ -133,15 +130,7 @@ const NgoLogin = (props) => {
                           </div>
                         )}
                       </div>
-                      <p
-                        onClick={() => navigate("/resetPassword")}
-                        id="forgetPassword"
-                        className={`${styles.forgotPassword} text-end text-dark mb-3 fw-bold`}
-                        style={{ cursor: "pointer" }}
-                      >
-                        Forgot Password ?
-                      </p>
-                      <div className="mb-5 col-3 d-grid mx-auto">
+                      <div className="mb-3 col-3 d-grid mx-auto">
                         <button type="submit" className="btn btn-dark">
                           {loading ? (
                             "login..."
@@ -168,13 +157,6 @@ const NgoLogin = (props) => {
                 </Formik>
               </div>
             </div>
-          </div>
-          <div className={`${styles.right} col-md-6 m-auto`}>
-            <img
-              className={`${styles.img} img-fluid mt-4`}
-              src="./Images/login.svg"
-              alt="login"
-            />
           </div>
         </div>
       </div>
