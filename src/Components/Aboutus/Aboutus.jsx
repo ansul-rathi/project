@@ -359,7 +359,7 @@ const Aboutus = () => {
                     </div>
                   </div>
                   <div className="row">
-                    <div className="col-12">
+                    <div className="col-12" style={{display: 'flex', flexDirection: 'row-reverse'}}>
                       <div className="my-2">
                         <div className="d-grid ms-auto">
                           <button type="submit" className="btn btn-dark button">Submit and Continue</button>
